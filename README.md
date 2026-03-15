@@ -76,22 +76,18 @@ The system contains four main entities.
 
 ## API Endpoints
 
-Authentication
-
+- Authentication
 POST /auth/login
 
-Organizations
-
+- Organizations
 POST /organizations  
 GET /organizations  
 
-Projects
-
+- Projects
 POST /projects  
 GET /projects  
 
-Tasks
-
+- Tasks
 POST /tasks  
 GET /tasks  
 
@@ -102,10 +98,8 @@ GET /tasks
 ### 1 Install Dependencies
 pip install -r requirements.txt
 ### 2 Start Database and Redis
-
 Using Docker:
 docker-compose up
-
 
 ### 3 Run FastAPI Server
 uvicorn app.main:app --reload
@@ -117,10 +111,7 @@ http://localhost:8000/docs
 ## Running Background Workers
 
 Start the Celery worker:
-
-
 celery -A app.workers.celery_worker.celery_app worker --loglevel=info
-
 
 This enables asynchronous jobs like notifications and scheduled processing.
 
@@ -128,9 +119,7 @@ This enables asynchronous jobs like notifications and scheduled processing.
 
 ## Running Tests
 
-
 pytest
-
 
 Tests validate:
 
