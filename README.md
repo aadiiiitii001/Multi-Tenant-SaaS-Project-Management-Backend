@@ -34,6 +34,7 @@ Pagination utilities for scalable APIs
 Automated API testing with Pytest 
 ---
 ## Project Architecture
+```
 Saas
 │
 ├── app
@@ -54,7 +55,8 @@ Saas
 │
 ├── requirements.txt
 │
-└── docker-compose.yml 
+└── docker-compose.yml
+```
 Database migrations with Alembic  
 Request logging middleware  
 Rate limiting middleware  
@@ -227,8 +229,6 @@ Scheduled task reminders
 ---
 
 ## License
-
 This project is provided for educational and portfolio purposes.
-```
 
 
