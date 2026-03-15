@@ -101,11 +101,8 @@ pip install -r requirements.txt
 Using Docker:
 docker-compose up
 
-### 3 Run FastAPI Server
+## 3 Run FastAPI Server
 uvicorn app.main:app --reload
-
-API documentation will be available at:
-http://localhost:8000/docs
 ---
 
 ## Running Background Workers
