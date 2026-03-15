@@ -56,12 +56,6 @@ Saas
 │
 └── docker-compose.yml
 ```
-Database migrations with Alembic  
-Request logging middleware  
-Rate limiting middleware  
-Pagination utilities for scalable APIs  
-Automated API testing with Pytest  
----
 
 This structure follows a **layered backend architecture**:
 
