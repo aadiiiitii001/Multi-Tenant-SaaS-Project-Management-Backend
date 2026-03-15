@@ -336,8 +336,6 @@ Tests cover authentication, project management, and task APIs.
 The project can be deployed using Docker on platforms such as:
 
 - Render  
-- Railway  
-- Fly.io  
 
 Example deployment command:
 
