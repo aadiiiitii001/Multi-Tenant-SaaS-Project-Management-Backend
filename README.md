@@ -20,7 +20,7 @@ This project showcases backend architecture patterns used in real-world SaaS app
 ---
 
 ## Key Features
-
+```
 Multi-tenant architecture with organization-based data isolation  
 REST API with clean layered architecture  
 JWT authentication system  
@@ -30,7 +30,8 @@ Database migrations with Alembic
 Request logging middleware  
 Rate limiting middleware  
 Pagination utilities for scalable APIs  
-Automated API testing with Pytest 
+Automated API testing with Pytest
+```
 ---
 ## Project Architecture
 ```
