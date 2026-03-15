@@ -91,7 +91,6 @@ GET /projects
 POST /tasks  
 GET /tasks  
 
----
 
 ## Running the Project
 
@@ -103,13 +102,15 @@ docker-compose up
 
 ## 3 Run FastAPI Server
 uvicorn app.main:app --reload
----
+
+API documentation will be available at:
+http://localhost:8000/docs
+
 
 ## Running Background Workers
 
-Start the Celery worker:
+## Start the Celery worker:
 celery -A app.workers.celery_worker.celery_app worker --loglevel=info
-
 This enables asynchronous jobs like notifications and scheduled processing.
 
 ---
