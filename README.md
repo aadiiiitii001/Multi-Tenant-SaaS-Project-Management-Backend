@@ -10,18 +10,18 @@ This project demonstrates real-world backend concepts commonly used in SaaS plat
 
 # Key Features
 
-Multi-tenant architecture with organization-based data isolation  
-JWT-based authentication and authorization  
-Layered backend architecture (API, Services, Repositories)  
-Asynchronous background tasks using Celery  
-Redis integration for message brokering  
-Database migrations using Alembic  
-Request logging middleware  
-Rate limiting middleware  
-Tenant context middleware  
-Pagination utilities for scalable APIs  
-Docker-based deployment  
-Automated testing with Pytest
+- Multi-tenant architecture with organization-based data isolation  
+- JWT-based authentication and authorization  
+- Layered backend architecture (API, Services, Repositories)  
+- Asynchronous background tasks using Celery  
+- Redis integration for message brokering  
+- Database migrations using Alembic  
+- Request logging middleware  
+- Rate limiting middleware  
+- Tenant context middleware  
+- Pagination utilities for scalable APIs  
+- Docker-based deployment  
+- Automated testing with Pytest
 
 ---
 
