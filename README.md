@@ -67,17 +67,10 @@ API Layer → Service Layer → Repository Layer → Database Models
 
 The system contains four main entities.
 
-- Organizations  
-Represents tenants using the platform.
-
-- Users  
-Belong to organizations and have specific roles.
-
-- Projects  
-Projects managed by organizations.
-
-- Tasks  
-Work items belonging to projects.
+- Organizations: Represents tenants using the platform.
+- Users: Belong to organizations and have specific roles.
+- Projects: Projects managed by organizations.
+- Tasks: Work items belonging to projects.
 
 ---
 
