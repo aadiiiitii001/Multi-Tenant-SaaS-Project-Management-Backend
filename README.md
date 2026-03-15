@@ -7,7 +7,7 @@ This project showcases backend architecture patterns used in real-world SaaS app
 ---
 
 ## Tech Stack
-```
+
 - Framework: FastAPI  
 - Language: Python  
 - Database: PostgreSQL  
@@ -17,7 +17,6 @@ This project showcases backend architecture patterns used in real-world SaaS app
 - Background Workers: Celery  
 - Testing: Pytest  
 - Containerization: Docker  
-```
 ---
 
 ## Key Features
