@@ -205,6 +205,11 @@ http://localhost:8000/docs
 FastAPI automatically generates OpenAPI documentation.
 
 ---
+### Live Demo
+
+🔗 **[multi-tenant-saas-project-management-kim3.onrender.com/docs](https://multi-tenant-saas-project-management-kim3.onrender.com/docs)**
+
+![API Docs](screenshots/api_docs.png)
 
 ## 🔌 Example API Endpoints
 
