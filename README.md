@@ -209,7 +209,7 @@ FastAPI automatically generates OpenAPI documentation.
 
 🔗 **[multi-tenant-saas-project-management-kim3.onrender.com/docs](https://multi-tenant-saas-project-management-kim3.onrender.com/docs)**
 
-![API Docs]   
+![API Docs] 
 
 ## 🔌 Example API Endpoints
 
