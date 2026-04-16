@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import API from "../api/api";
+import Navbar from "../components/Navbar";
+import OrgSwitcher from "../components/OrgSwitcher";
 
 export default function Dashboard() {
   const [organizations, setOrganizations] = useState([]);
@@ -11,44 +13,59 @@ export default function Dashboard() {
   }, []);
 
   const fetchOrganizations = async () => {
-    const res = await API.get("/organizations/");
-    setOrganizations(res.data);
-    if (res.data.length > 0) {
-      setSelectedOrg(res.data[0].id);
-      fetchProjects(res.data[0].id);
+    try {
+      const res = await API.get("/organizations/");
+      setOrganizations(res.data);
+
+      if (res.data.length > 0) {
+        setSelectedOrg(res.data[0].id);
+        fetchProjects(res.data[0].id);
+      }
+    } catch (err) {
+      console.error(err);
     }
   };
 
   const fetchProjects = async (orgId) => {
-    const res = await API.get(`/projects/?organization_id=${orgId}`);
-    setProjects(res.data);
+    try {
+      const res = await API.get(`/projects/?organization_id=${orgId}`);
+      setProjects(res.data);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const handleOrgChange = (e) => {
-    const orgId = e.target.value;
-    setSelectedOrg(orgId);
-    fetchProjects(orgId);
-  };
+  const selectedOrgName =
+    organizations.find((o) => o.id == selectedOrg)?.name;
 
   return (
-    <div style={{ padding: 40 }}>
-      <h2>Dashboard</h2>
+    <div>
+      <Navbar selectedOrgName={selectedOrgName} />
 
-      {/* Organization Switcher */}
-      <select onChange={handleOrgChange} value={selectedOrg}>
-        {organizations.map((org) => (
-          <option key={org.id} value={org.id}>
-            {org.name}
-          </option>
-        ))}
-      </select>
+      <div style={{ padding: "30px" }}>
+        <h2>Dashboard</h2>
 
-      <h3>Projects</h3>
-      <ul>
-        {projects.map((p) => (
-          <li key={p.id}>{p.name}</li>
-        ))}
-      </ul>
+        <OrgSwitcher
+          organizations={organizations}
+          selectedOrg={selectedOrg}
+          onChange={(orgId) => {
+            setSelectedOrg(orgId);
+            fetchProjects(orgId);
+          }}
+        />
+
+        <h3>Projects</h3>
+
+        {projects.length === 0 ? (
+          <p>No projects found</p>
+        ) : (
+          <ul>
+            {projects.map((p) => (
+              <li key={p.id}>{p.name}</li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }
