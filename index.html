@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aditi Nayak — Backend Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    :root {
+      --bg: #f9f8f5;
+      --surface: #ffffff;
+      --surface2: #f2f1ed;
+      --border: rgba(0,0,0,0.1);
+      --border-mid: rgba(0,0,0,0.18);
+      --text: #1a1a18;
+      --text-2: #5f5e5a;
+      --text-3: #9a9891;
+      --accent: #1a1a18;
+      --accent-fg: #f9f8f5;
+      --blue-bg: #e6f1fb;
+      --blue-text: #185fa5;
+      --blue-border: #85b7eb;
+      --purple-bg: #eeedfe;
+      --purple-text: #534ab7;
+      --purple-border: #afa9ec;
+      --green-bg: #eaf3de;
+      --green-text: #3b6d11;
+      --green-border: #c0dd97;
+      --amber-bg: #faeeda;
+      --amber-text: #854f0b;
+      --amber-border: #fac775;
+      --teal-bg: #e1f5ee;
+      --teal-text: #0f6e56;
+      --teal-border: #5dcaa5;
+      --gray-bg: #f1efe8;
+      --gray-text: #5f5e5a;
+      --gray-border: #d3d1c7;
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+ 
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1a1a18;
+        --surface: #232320;
+        --surface2: #2c2c2a;
+        --border: rgba(255,255,255,0.1);
+        --border-mid: rgba(255,255,255,0.18);
+        --text: #f0ede8;
+        --text-2: #a8a49e;
+        --text-3: #6b6864;
+        --accent: #f0ede8;
+        --accent-fg: #1a1a18;
+        --blue-bg: #0c447c;
+        --blue-text: #b5d4f4;
+        --blue-border: #378add;
+        --purple-bg: #3c3489;
+        --purple-text: #cecbf6;
+        --purple-border: #7f77dd;
+        --green-bg: #27500a;
+        --green-text: #c0dd97;
+        --green-border: #3b6d11;
+        --amber-bg: #633806;
+        --amber-text: #fac775;
+        --amber-border: #854f0b;
+        --teal-bg: #085041;
+        --teal-text: #9fe1cb;
+        --teal-border: #1d9e75;
+        --gray-bg: #444441;
+        --gray-text: #d3d1c7;
+        --gray-border: #5f5e5a;
+      }
+    }
+ 
+    html { font-size: 16px; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 3rem 1.5rem;
+    }
+ 
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+ 
+    /* ── Hero ── */
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 0.6rem;
+    }
+ 
+    .title {
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+ 
+    .subtitle {
+      font-size: 15px;
+      color: var(--text-2);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+ 
+    .links {
+      display: flex;
+      gap: 10px;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+ 
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 9px 18px;
+      border-radius: var(--radius-md);
+      border: 0.5px solid var(--border-mid);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .btn:hover { background: var(--surface2); }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-fg);
+      border-color: var(--accent);
+    }
+    .btn-primary:hover { opacity: 0.82; }
+    .btn i { font-size: 15px; }
+ 
+    /* ── Divider ── */
+    .divider {
+      height: 0.5px;
+      background: var(--border);
+      margin: 2rem 0;
+    }
+ 
+    /* ── Section label ── */
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 1rem;
+    }
+ 
+    /* ── Stats ── */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 520px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+    }
+    .stat {
+      background: var(--surface2);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+    }
+    .stat-val {
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-2);
+    }
+ 
+    /* ── Stack badges ── */
+    .stack-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 2rem;
+    }
+    .badge {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 100px;
+      border: 0.5px solid var(--border);
+      color: var(--text-2);
+      background: var(--surface);
+    }
+    .badge-py  { background: var(--green-bg);  color: var(--green-text);  border-color: var(--green-border);  }
+    .badge-api { background: var(--blue-bg);   color: var(--blue-text);   border-color: var(--blue-border);   }
+    .badge-db  { background: var(--purple-bg); color: var(--purple-text); border-color: var(--purple-border); }
+    .badge-q   { background: var(--amber-bg);  color: var(--amber-text);  border-color: var(--amber-border);  }
+    .badge-d   { background: var(--gray-bg);   color: var(--gray-text);   border-color: var(--gray-border);   }
+ 
+    /* ── Architecture ── */
+    .arch {
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    .arch-header {
+      padding: 12px 16px;
+      border-bottom: 0.5px solid var(--border);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-2);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--surface);
+    }
+    .arch-body { padding: 1.25rem; background: var(--surface); }
+ 
+    .flow {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .flow-box {
+      flex-shrink: 0;
+      background: var(--surface2);
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius-md);
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text);
+      white-space: nowrap;
+      text-align: center;
+      line-height: 1.4;
+    }
+    .flow-box small { font-size: 10px; font-weight: 400; color: var(--text-2); display: block; margin-top: 2px; }
+    .flow-box.blue   { background: var(--blue-bg);   border-color: var(--blue-border);   color: var(--blue-text);   }
+    .flow-box.purple { background: var(--purple-bg); border-color: var(--purple-border); color: var(--purple-text); }
+    .flow-box.teal   { background: var(--teal-bg);   border-color: var(--teal-border);   color: var(--teal-text);   }
+    .flow-box.amber  { background: var(--amber-bg);  border-color: var(--amber-border);  color: var(--amber-text);  }
+    .flow-arrow { color: var(--text-3); font-size: 14px; padding: 0 7px; flex-shrink: 0; }
+ 
+    .async-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      padding-top: 10px;
+      border-top: 0.5px solid var(--border);
+    }
+    .async-label {
+      font-size: 11px;
+      color: var(--text-3);
+      margin-right: 10px;
+      white-space: nowrap;
+    }
+ 
+    /* ── Endpoints ── */
+    .endpoints {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 480px) {
+      .endpoints { grid-template-columns: 1fr; }
+    }
+    .ep {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .method {
+      font-size: 10px;
+      font-weight: 500;
+      padding: 3px 8px;
+      border-radius: 4px;
+      min-width: 42px;
+      text-align: center;
+      flex-shrink: 0;
+      font-family: 'DM Mono', monospace;
+    }
+    .method-get  { background: var(--blue-bg);  color: var(--blue-text);  }
+    .method-post { background: var(--green-bg); color: var(--green-text); }
+    .ep-path { font-size: 12px; font-family: 'DM Mono', monospace; color: var(--text); }
+    .ep-desc { font-size: 11px; color: var(--text-2); margin-top: 2px; }
+ 
+    /* ── Features ── */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 0.5rem;
+    }
+    @media (max-width: 480px) {
+      .features { grid-template-columns: 1fr; }
+    }
+    .feat {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+    }
+    .feat-icon { font-size: 18px; color: var(--text-2); margin-top: 1px; flex-shrink: 0; }
+    .feat-title { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
+    .feat-desc { font-size: 12px; color: var(--text-2); line-height: 1.5; }
+ 
+    /* ── Footer ── */
+    .footer {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 0.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: gap;
+      gap: 12px;
+    }
+    .footer-note { font-size: 12px; color: var(--text-3); }
+    .footer-links { display: flex; gap: 8px; }
+  </style>
+</head>
+<body>
+  <div class="page">
+ 
+    <!-- Hero -->
+    <p class="eyebrow">Backend engineering · Python · REST API</p>
+    <h1 class="title">Multi-Tenant SaaS<br>Project Management</h1>
+    <p class="subtitle">A production-style backend system where multiple organizations share one platform with strict data isolation — built with FastAPI, PostgreSQL, Celery, and Docker.</p>
+    <div class="links">
+      <a class="btn btn-primary" href="https://multi-tenant-saas-project-management-kim3.onrender.com/docs" target="_blank" rel="noopener">
+        <i class="ti ti-external-link"></i> Live API docs
+      </a>
+      <a class="btn" href="https://github.com/aadiiiitii001/Multi-Tenant-SaaS-Project-Management-Backend" target="_blank" rel="noopener">
+        <i class="ti ti-brand-github"></i> GitHub
+      </a>
+    </div>
+ 
+    <div class="divider"></div>
+ 
+    <!-- Stats -->
+    <p class="section-label">At a glance</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">7</div><div class="stat-label">API endpoints</div></div>
+      <div class="stat"><div class="stat-val">4</div><div class="stat-label">DB entities</div></div>
+      <div class="stat"><div class="stat-val">3</div><div class="stat-label">Middleware layers</div></div>
+      <div class="stat"><div class="stat-val">84</div><div class="stat-label">Git commits</div></div>
+    </div>
+ 
+    <!-- Stack -->
+    <p class="section-label">Tech stack</p>
+    <div class="stack-grid">
+      <span class="badge badge-py">Python</span>
+      <span class="badge badge-api">FastAPI</span>
+      <span class="badge badge-db">PostgreSQL</span>
+      <span class="badge badge-db">SQLAlchemy</span>
+      <span class="badge badge-db">Alembic</span>
+      <span class="badge badge-q">Celery</span>
+      <span class="badge badge-q">Redis</span>
+      <span class="badge badge-api">JWT Auth</span>
+      <span class="badge badge-d">Docker</span>
+      <span class="badge badge-d">Pytest</span>
+      <span class="badge badge-d">Render</span>
+    </div>
+ 
+    <div class="divider"></div>
+ 
+    <!-- Architecture -->
+    <p class="section-label">System architecture</p>
+    <div class="arch">
+      <div class="arch-header">
+        <i class="ti ti-topology-star"></i>
+        Request lifecycle
+      </div>
+      <div class="arch-body">
+        <div class="flow">
+          <div class="flow-box">Client</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box blue">Middleware<small>rate limit · logging · tenant</small></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box">API routes</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box purple">Service layer</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box purple">Repository</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box teal">PostgreSQL</div>
+        </div>
+        <div class="async-row">
+          <span class="async-label">Async jobs</span>
+          <div class="flow-box amber">Celery worker</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-box amber">Redis broker</div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Endpoints -->
+    <p class="section-label">Endpoints</p>
+    <div class="endpoints">
+      <div class="ep"><span class="method method-post">POST</span><div><div class="ep-path">/auth/login</div><div class="ep-desc">JWT token issuance</div></div></div>
+      <div class="ep"><span class="method method-post">POST</span><div><div class="ep-path">/organizations/</div><div class="ep-desc">Create organization (tenant)</div></div></div>
+      <div class="ep"><span class="method method-get">GET</span><div><div class="ep-path">/organizations/</div><div class="ep-desc">List organizations</div></div></div>
+      <div class="ep"><span class="method method-post">POST</span><div><div class="ep-path">/projects/</div><div class="ep-desc">Create project</div></div></div>
+      <div class="ep"><span class="method method-get">GET</span><div><div class="ep-path">/projects/</div><div class="ep-desc">Get projects (scoped by org)</div></div></div>
+      <div class="ep"><span class="method method-post">POST</span><div><div class="ep-path">/tasks/</div><div class="ep-desc">Create task</div></div></div>
+      <div class="ep"><span class="method method-get">GET</span><div><div class="ep-path">/tasks/</div><div class="ep-desc">Get tasks (scoped by org)</div></div></div>
+    </div>
+ 
+    <div class="divider"></div>
+ 
+    <!-- Features -->
+    <p class="section-label">Key concepts demonstrated</p>
+    <div class="features">
+      <div class="feat">
+        <i class="ti ti-building feat-icon"></i>
+        <div><div class="feat-title">Multi-tenancy</div><div class="feat-desc">Org-scoped data isolation across all entities via tenant context middleware</div></div>
+      </div>
+      <div class="feat">
+        <i class="ti ti-lock feat-icon"></i>
+        <div><div class="feat-title">JWT authentication</div><div class="feat-desc">Stateless token-based auth with secure password hashing</div></div>
+      </div>
+      <div class="feat">
+        <i class="ti ti-layers-difference feat-icon"></i>
+        <div><div class="feat-title">Layered architecture</div><div class="feat-desc">Clean separation: routes → services → repositories → models</div></div>
+      </div>
+      <div class="feat">
+        <i class="ti ti-clock-bolt feat-icon"></i>
+        <div><div class="feat-title">Async background jobs</div><div class="feat-desc">Celery + Redis for non-blocking task processing</div></div>
+      </div>
+      <div class="feat">
+        <i class="ti ti-database feat-icon"></i>
+        <div><div class="feat-title">Database migrations</div><div class="feat-desc">Alembic for version-controlled schema management</div></div>
+      </div>
+      <div class="feat">
+        <i class="ti ti-shield-check feat-icon"></i>
+        <div><div class="feat-title">Rate limiting</div><div class="feat-desc">Middleware-level request throttling to prevent API abuse</div></div>
+      </div>
+    </div>
+ 
+    <!-- Footer -->
+    <div class="footer">
+      <span class="footer-note">Deployed on Render · PostgreSQL + Redis hosted · Tests via Pytest</span>
+      <div class="footer-links">
+        <a class="btn" href="https://multi-tenant-saas-project-management-kim3.onrender.com/docs" target="_blank" rel="noopener" style="font-size:12px;padding:6px 12px;">
+          <i class="ti ti-external-link"></i> Live demo
+        </a>
+        <a class="btn" href="https://github.com/aadiiiitii001/Multi-Tenant-SaaS-Project-Management-Backend" target="_blank" rel="noopener" style="font-size:12px;padding:6px 12px;">
+          <i class="ti ti-brand-github"></i> Source
+        </a>
+      </div>
+    </div>
+ 
+  </div>
+</body>
+</html>
+ 
